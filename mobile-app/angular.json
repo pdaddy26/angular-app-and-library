@@ -121,6 +121,41 @@
           }
         }
       }
+    },
+    "mobile-library": {
+      "root": "projects/mobile-library",
+      "sourceRoot": "projects/mobile-library/src",
+      "projectType": "library",
+      "prefix": "ml",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/mobile-library/tsconfig.lib.json",
+            "project": "projects/mobile-library/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mobile-library/src/test.ts",
+            "tsConfig": "projects/mobile-library/tsconfig.spec.json",
+            "karmaConfig": "projects/mobile-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mobile-library/tsconfig.lib.json",
+              "projects/mobile-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "mobile-app"
